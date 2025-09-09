@@ -7,11 +7,18 @@ import { UserService } from '../user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get()
-  async findAll(): Promise<User[]> {
-    return this.userService.findAll();
+@Get()
+async findAll(): Promise<User[]> {
+  try {
+    const users = await this.userService.findAll();
+    if (!users || users.length === 0) {
+      throw new NotFoundException('No users found');
+    }
+    return users;
+  } catch (error) {
+    throw new NotFoundException('An error occurred while fetching users');
   }
-
+}
 
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<User> {
@@ -21,4 +28,6 @@ export class UserController {
     }
     return user;
   }
+
+  
 }
