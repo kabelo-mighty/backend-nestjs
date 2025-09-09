@@ -1,6 +1,7 @@
-import { Controller, Get, NotFoundException, Param, ParseIntPipe } from '@nestjs/common';
+import { BadRequestException, Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { User } from '../user.entity';
 import { UserService } from '../user.service';
+import { CreateUserDto } from '../dto/createUserDto';
 
 
 @Controller('users')
@@ -28,6 +29,27 @@ async findAll(): Promise<User[]> {
     }
     return user;
   }
+@Delete(':id')
+async deleteUser(@Param('id', ParseIntPipe) id: number): Promise<{ message: string }> {
+  try {
+    const user = await this.userService.findOne(id);
+    if (!user) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+    await this.userService.delete(id);
+    return { message: `User with ID ${id} has been successfully deleted` };
+  } catch (error) {
+    throw new NotFoundException(`An error occurred while deleting the user with ID ${id}`);
+  }
+}
 
-  
+@Post()
+async createUser(@Body() createUserDto: CreateUserDto): Promise<{ message: string; user: User }> {
+  try {
+    const user = await this.userService.create(createUserDto);
+    return { message: 'User successfully created', user };
+  } catch (error) {
+    throw new BadRequestException('An error occurred while creating the user');
+  }
+}
 }

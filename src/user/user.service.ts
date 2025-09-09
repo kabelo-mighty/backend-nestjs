@@ -18,9 +18,9 @@ import { Injectable } from '@nestjs/common';
        return this.usersRepository.findOneBy({ id });
      }
 
-     create(user: Partial<User>): Promise<User> {
-       return this.usersRepository.save(user);
-     }
+     async create(createUserDto: Partial<User>): Promise<User> {
+           return this.usersRepository.save(createUserDto);
+       }
 
      async update(id: number, user: Partial<User>): Promise<User> {
        await this.usersRepository.update(id, user);
