@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, JoinColumn, OneToOne } from 'typeorm';
 import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { OrderInfo } from '../order_information/order-info.entity';
 
 @ObjectType()
 @Entity("payment")
@@ -27,8 +28,8 @@ export class Payment {
     @Column({ length: 50 })
     payment_status: string;
 
-    //   @OneToOne(() => OrderInformation, (order) => order.payment, { onDelete: "CASCADE" })
+    //   @OneToOne(() => OrderInfo, (order) => order.payments, { onDelete: "CASCADE" })
     //   @JoinColumn({ name: "order_id" })
-    //   order: OrderInformation;
+    //   order: OrderInfo;
 }
 
