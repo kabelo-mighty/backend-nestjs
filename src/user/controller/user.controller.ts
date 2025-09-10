@@ -1,6 +1,6 @@
 import { BadRequestException, Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { user_information } from '../user.entity';
-import { UserService } from '../user.service';
+import { UserService } from '../service/user.service';
 import { CreateUserDto } from '../dto/createUserDto';
 
 
