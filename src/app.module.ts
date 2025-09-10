@@ -5,7 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
-import { OrderItemModule } from './order_items/order-item.module';
+import { OrderItemModule } from './order_item/order-item.module';
 
 @Module({
   imports: [
