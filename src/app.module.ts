@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver } from '@nestjs/apollo';
 import { UserModule } from './user/user.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { UserModule } from './user/user.module';
       driver: ApolloDriver,
       autoSchemaFile: true,
     }),
-    UserModule, // Import UserModule
+    UserModule,ProductModule // Import UserModule
   ],
   controllers: [],
   providers: [],
