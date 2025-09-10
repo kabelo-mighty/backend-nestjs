@@ -6,6 +6,7 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { OrderItemModule } from './order_item/order-item.module';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { OrderItemModule } from './order_item/order-item.module';
       driver: ApolloDriver,
       autoSchemaFile: true,
     }),
-    UserModule,ProductModule,OrderItemModule
+    UserModule,ProductModule,OrderItemModule,PaymentModule
   ],
   controllers: [],
   providers: [],
