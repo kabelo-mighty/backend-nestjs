@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { OrderItemModule } from './order_item/order-item.module';
 import { PaymentModule } from './payment/payment.module';
+import { OrderInfoModule } from './order_information/order-info.module';
 
 @Module({
   imports: [
@@ -24,7 +25,7 @@ import { PaymentModule } from './payment/payment.module';
       driver: ApolloDriver,
       autoSchemaFile: true,
     }),
-    UserModule,ProductModule,OrderItemModule,PaymentModule
+    UserModule,ProductModule,OrderItemModule,PaymentModule,OrderInfoModule
   ],
   controllers: [],
   providers: [],
