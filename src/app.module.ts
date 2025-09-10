@@ -22,7 +22,7 @@ import { ProductModule } from './product/product.module';
       driver: ApolloDriver,
       autoSchemaFile: true,
     }),
-    UserModule,ProductModule // Import UserModule
+    UserModule,ProductModule
   ],
   controllers: [],
   providers: [],
