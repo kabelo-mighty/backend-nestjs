@@ -1,30 +1,30 @@
 import { Injectable } from '@nestjs/common';
    import { InjectRepository } from '@nestjs/typeorm';
    import { Repository } from 'typeorm';
-   import { User } from './user.entity';
+   import { user_information } from './user.entity';
 
    @Injectable()
    export class UserService {
      constructor(
-       @InjectRepository(User)
-       private usersRepository: Repository<User>,
+       @InjectRepository(user_information)
+       private usersRepository: Repository<user_information>,
      ) {}
 
-     findAll(): Promise<User[]> {
+     findAll(): Promise<user_information[]> {
        return this.usersRepository.find();
      }
 
-     findOne(id: number): Promise<User> {
-       return this.usersRepository.findOneBy({ id });
+     findOne(id: number): Promise<user_information> {
+       return this.usersRepository.findOneBy({ user_id: id });
      }
 
-     async create(createUserDto: Partial<User>): Promise<User> {
+     async create(createUserDto: Partial<user_information>): Promise<user_information> {
            return this.usersRepository.save(createUserDto);
        }
 
-     async update(id: number, user: Partial<User>): Promise<User> {
+     async update(id: number, user: Partial<user_information>): Promise<user_information> {
        await this.usersRepository.update(id, user);
-       return this.usersRepository.findOneBy({ id });
+       return this.usersRepository.findOneBy({ user_id: id });
      }
 
      async delete(id: number): Promise<void> {
