@@ -1,0 +1,79 @@
+{
+    "user_information": {
+        "personal_info": {
+            "first_name": "",
+            "last_name": "",
+            "date_of_birth": "",
+            "gender": ""
+        },
+        "address_information": {
+            "address_line_1": "",
+            "address_line_2": "",
+            "city": "",
+            "state": "",
+            "postal_code": "",
+            "country": ""
+        },
+        "contact_information": {
+            "email": "",
+            "phone_number": ""
+        },
+        "security_credentials": {
+            "username": "",
+            "password": "",
+            "roles": []
+        }
+    },
+    "product_information": {
+        "user_id": "",
+        "product_details": [
+            {
+                "product_code": "",
+                "product_name": "",
+                "description": "",
+                "image_url": "",
+                "category": "",
+                "price": 0.0,
+                "currency": "",
+                "stock_quantity": 0
+            },
+            {
+                "product_code": "",
+                "product_name": "",
+                "description": "",
+                "image_url": "",
+                "category": "",
+                "price": 0.0,
+                "currency": "",
+                "stock_quantity": 0
+            }
+        ]
+    },
+    "order_information": [
+        {
+            "order_id": "",
+            "user_id": "",
+            "order_date": "",
+            "order_items": [
+                {
+                    "product_code": "",
+                    "product_name": "",
+                    "quantity": 0,
+                    "price_per_unit": 0.0,
+                    "total_price": 0.0
+                }
+            ],
+            "order_total": 0.0,
+            "payment_status": "",
+            "shipping_status": "",
+            "additional_notes": "",
+            "payment": {
+                "payment_id": "",
+                "payment_method": "",
+                "payment_date": "",
+                "payment_amount": 0.0,
+                "payment_status": ""
+            }
+        }
+    ]
+}
