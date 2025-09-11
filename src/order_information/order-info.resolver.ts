@@ -1,15 +1,12 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { orderInfoService } from './service/order-info.service';
+import { OrderInfoService } from './service/order-info.service';
 import { OrderInfo } from './order-info.entity';
 import { CreateOrderInfoInput } from './dto/create-order-info.input';
-
-@Resolver(of => OrderInfo)
-@Resolver()
 export class OrderInfoResolver {
-    constructor(private readonly orderInfoService: orderInfoService) { }
+    constructor(private readonly orderInfoService: OrderInfoService) { } // <- Correct service type
 
     @Query(returns => [OrderInfo])
-    orderInformation() {
+    orderInfos() { // <- Renamed for clarity
         return this.orderInfoService.findAll();
     }
 
@@ -26,7 +23,7 @@ export class OrderInfoResolver {
     @Mutation(returns => OrderInfo)
     updateOrderInfo(
         @Args('id', { type: () => Int }) id: number,
-        @Args('updateOrderInfoInput') updateOrderInfoInput: CreateOrderInfoInput,
+        @Args('updateOrderInfoInput') updateOrderInfoInput: CreateOrderInfoInput, // <- Use Update DTO
     ) {
         return this.orderInfoService.update(id, updateOrderInfoInput);
     }
@@ -37,3 +34,4 @@ export class OrderInfoResolver {
         return true;
     }
 }
+

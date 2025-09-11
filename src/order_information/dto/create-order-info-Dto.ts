@@ -1,14 +1,14 @@
-import { InputType, Field, Int } from '@nestjs/graphql';
+import { InputType, Field, Int, Float } from '@nestjs/graphql';
 
 @InputType()
 export class CreateOrderInfoDto {
   @Field(() => Int)
   user_id: number;
 
-  @Field(() => Date) // <- This makes order_date a Date
+  @Field() // NestJS handles Date, mapping it to an ISO string
   order_date: Date;
 
-  @Field()
+  @Field(() => Float) // Use Float for currency to allow for decimals
   order_total: number;
 
   @Field()

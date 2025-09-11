@@ -1,11 +1,11 @@
 import { BadRequestException, Body, Controller, Delete, Get, NotFoundException, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { OrderInfo } from '../order-info.entity';
 import { CreateOrderInfoDto } from '../dto/create-order-info-Dto';
-import { orderInfoService } from '../service/order-info.service';
+import { OrderInfoService } from '../service/order-info.service';
 
 @Controller('order-info')
 export class OrderInfoController {
-  constructor(private readonly orderInfoService: orderInfoService) {}
+  constructor(private readonly orderInfoService: OrderInfoService) {}
 
 @Get()
 async findAll(): Promise<OrderInfo[]> {
